@@ -1,23 +1,25 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 function Detail() {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [movie, setMovie] = useState({});
   const [genres, setGenres] = useState([]);
-  const getMovie = async () => {
+  const getMovie = useCallback(async () => {
     const json = await (
       await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
     ).json();
     setLoading((current) => !current);
     setMovie(json.data.movie);
     setGenres(json.data.movie.genres); // TODO setGenres(movie.genres) 로는 세팅이 안됨
-    console.log(json);
-  };
+    // console.log(json);
+  }, [id]);
   useEffect(() => {
-    getMovie();
-  }); // 2번째 인자가 있어서 에러남   React Hook useEffect has a missing dependency: 'getMovie'. Either include it or remove the dependency array
+    if (id !== "" && id.length > 1) {
+      getMovie();
+    }
+  }, [getMovie, id]); //  React Hook useEffect has missing dependencies: 'getMovie' and 'id'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
   return (
     <div>
       {loading ? (
