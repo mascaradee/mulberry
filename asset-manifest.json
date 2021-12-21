@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/mulberry/static/js/main.736f5610.js",
+    "main.js": "/mulberry/static/js/main.6776e3fa.js",
     "index.html": "/mulberry/index.html",
-    "main.736f5610.js.map": "/mulberry/static/js/main.736f5610.js.map"
+    "main.6776e3fa.js.map": "/mulberry/static/js/main.6776e3fa.js.map"
   },
   "entrypoints": [
-    "static/js/main.736f5610.js"
+    "static/js/main.6776e3fa.js"
   ]
 }
