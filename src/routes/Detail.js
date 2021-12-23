@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
+import styles from "./Detail.module.css";
 
 function Detail() {
   const { id } = useParams();
@@ -21,43 +22,51 @@ function Detail() {
     }
   }, [getMovie, id]); //  React Hook useEffect has missing dependencies: 'getMovie' and 'id'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
   return (
-    <div>
+    <div className={styles.container}>
       {loading ? (
-        <h2>loading</h2>
+        <div className={styles.loader}>
+          <span>Loading...</span>
+        </div>
       ) : (
-        <div>
-          <img src={movie.medium_cover_image} alt={movie.title} />
-          <h1>{movie.title}</h1>
-          <p>
-            <span>{movie.year} / </span>
-            {genres.map((g) => (
-              <span key={g}>{g} / </span>
-            ))}
-            <span>{movie.runtime} min</span>
-          </p>
-          <p>
-            <b>
-              <span style={{ color: "green" }}>
-                Download : {movie.download_count}
-              </span>
-            </b>
-            &nbsp;
-            <b>
-              <span style={{ color: "red" }}>Like : {movie.like_count}</span>
-            </b>
-          </p>
-
-          <p>{movie.description_full}</p>
-          <dl>
-            <dt>
-              <strong>Rating</strong>
-            </dt>
-            <dd>{movie.rating}</dd>
-            <dt>
-              <strong>Uploaded</strong>
-            </dt>
-            <dd>{movie.date_uploaded}</dd>
-          </dl>
+        <div className={styles.movie}>
+          <img
+            src={movie.background_image_original}
+            alt={movie.background_image_original}
+            className={styles.movie__bg_img}
+          />
+          <div className={styles.movie__header}>
+            <div className={styles.movie__big__title}>
+              <img
+                src={movie.medium_cover_image}
+                alt={movie.medium_cover_image}
+                className={styles.movie__img}
+              />
+              <div>
+                <h1 className={styles.movie__title}>{movie.title}</h1>
+                <div className={styles.movie__year}>
+                  <span>{movie.year}년 • </span>
+                  <span>{movie.runtime}분</span>
+                </div>
+              </div>
+            </div>
+            <div className={styles.movie__rate__row}>
+              <div className={styles.movie__rate}>rate: {movie.rating} </div>
+              <div className={styles.movie__rate}>
+                downloed: {movie.download_count}
+              </div>
+              <div className={styles.movie__rate}>
+                like: {movie.like_count}{" "}
+              </div>
+            </div>
+          </div>
+          <div className={styles.movie__content}>
+            <div>{movie.description_full}</div>
+            <div className={styles.movie__genres}>
+              {genres.map((g) => (
+                <span key={g}>{g} </span>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </div>
