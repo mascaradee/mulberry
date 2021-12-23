@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/mulberry/static/css/main.223b911e.css",
+    "main.css": "/mulberry/static/css/main.29fea7b3.css",
     "main.js": "/mulberry/static/js/main.f2f7a411.js",
     "index.html": "/mulberry/index.html",
-    "main.223b911e.css.map": "/mulberry/static/css/main.223b911e.css.map",
+    "main.29fea7b3.css.map": "/mulberry/static/css/main.29fea7b3.css.map",
     "main.f2f7a411.js.map": "/mulberry/static/js/main.f2f7a411.js.map"
   },
   "entrypoints": [
-    "static/css/main.223b911e.css",
+    "static/css/main.29fea7b3.css",
     "static/js/main.f2f7a411.js"
   ]
 }
