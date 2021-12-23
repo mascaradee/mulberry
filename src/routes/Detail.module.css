@@ -79,6 +79,6 @@
   margin-top: 30px;
 }
 
-.movie__genres li {
-  padding: 20px;
+.movie__genres span {
+  padding-right: 20px;
 }
